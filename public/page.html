@@ -1,0 +1,53 @@
+<!doctype html>
+
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		<link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0-wip/css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css">
+		<link rel="stylesheet" type="text/css" href="page.css">
+		<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/require.js/2.1.8/require.min.js" data-main="page"></script>
+		<title>Save to DropB</title>
+	</head>
+	<body data-context="appContext" style="margin-right: 0">
+		<nav class="navbar navbar-fixed-top navbar-inverse" style="margin-right: 0">
+			<div class="container">
+				<div class="navbar-header">
+					<a class="navbar-brand" href="#">Save to DropB</a>
+				</div>
+			</div>
+		</nav>
+		<div class="container">
+			<div data-hideif="pageLoaded">
+				<div class="row">
+					<div class="col-lg-4 col-sm-3 col-xs-1"></div>
+					<div class="well col-lg-4 col-sm-6 col-xs-10">
+						<span class="lead">Please Wait...</span>
+						<div class="progress progress-striped active" style="margin-bottom: 4px; margin-top: 4px">
+							<div class="progress-bar" style="width: 100%"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row" data-showif="pageLoaded" style="display: none">
+				<div class="col-xs-12">
+					<div class="input-group">
+						<input type="text" class="form-control input-lg" placeholder="File URL" data-bind="newFileUrl">
+						<span class="input-group-btn">
+							<button class="btn btn-primary btn-lg" type="button" data-event-click="appContext.addFile"><i class="icon-dropbox icon-large"></i> Save</button>
+						</span>
+					</div>
+					<br>
+					<ul class="list-group">
+						<li class="list-group-item" data-foreach-file="files">
+							<h4 data-bind="file.url"></h4>
+							<div class="progress">
+								<div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" data-bind-style="file.css" data-addclass-progress-bar-success="file.uploadSuccess" data-addclass-progress-bar-danger="file.uploadFailure">
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
